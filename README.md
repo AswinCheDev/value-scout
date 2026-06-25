@@ -16,11 +16,11 @@ ValueScout is a comprehensive web platform designed to redefine how you shop. By
 ## 📸 Screenshots
 Here is a glimpse of ValueScout in action:
 
-| | |
-|:---:|:---:|
-| ![Homepage](./sc/homepage.png) | ![Homepage Search](./sc/homepage%20search.png) |
-| ![AI Style Builder](./sc/ai%20style%20builder.png) | ![Price Alerts](./sc/price%20alert.png) |
-| ![Recommendations](./sc/recommendation.png) | ![Wishlist](./sc/wishlist%20page.png) |
+<img src="./sc/homepage.png" width="49%" alt="Homepage" /> <img src="./sc/homepage%20search.png" width="49%" alt="Homepage Search" />
+
+<img src="./sc/ai%20style%20builder.png" width="49%" alt="AI Style Builder" /> <img src="./sc/price%20alert.png" width="49%" alt="Price Alerts" />
+
+<img src="./sc/recommendation.png" width="49%" alt="Recommendations" /> <img src="./sc/wishlist%20page.png" width="49%" alt="Wishlist" />
 
 ## 🛠️ Tech Stack & Libraries
 
