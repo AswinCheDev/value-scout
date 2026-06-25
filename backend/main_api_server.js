@@ -1791,12 +1791,17 @@ app.get("/api/search", async (req, res) => {
 
     const docs = await col
       .find({
-        $or: [
-          { productName: { $regex: regex } },
-          { brand: { $regex: regex } },
-          { category: { $regex: regex } },
-          { source: { $regex: regex } }
-        ],
+        $and: [
+          { styleEmbedding: { $exists: true } },  // Only products with embeddings
+          {
+            $or: [
+              { productName: { $regex: regex } },
+              { brand: { $regex: regex } },
+              { category: { $regex: regex } },
+              { source: { $regex: regex } }
+            ]
+          }
+        ]
       })
       .limit(100)
       .toArray();

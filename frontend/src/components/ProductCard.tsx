@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Wand2, Heart, ExternalLink, Star } from "lucide-react";
 
-import { Dialog, DialogTrigger, DialogContent } from "./ui/dialog";
+import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } from "./ui/dialog";
 import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogDescription, AlertDialogTitle } from "./ui/alert-dialog";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
@@ -32,7 +32,7 @@ const formatPrice = (val?: number | string) => {
 };
 
 const ProductCard: React.FC<ProductCardProps> = ({ 
-  productId, productName, name, price, imageUrl, productUrl, source, onWishlistToggle, isInWishlist, asin
+  productId, productName, name, price, imageUrl, productUrl, source, onWishlistToggle, isInWishlist: initialIsInWishlist, asin
 }) => {
   
   const displayName = productName ?? name ?? "";
@@ -40,7 +40,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
   const [showWishlistConfirm, setShowWishlistConfirm] = useState(false);
   const [wishlistMessage, setWishlistMessage] = useState("");
   const [isAddingToWishlist, setIsAddingToWishlist] = useState(false);
-  const [isInWishlist, setIsInWishlist] = useState(false);
+  const [isInWishlist, setIsInWishlist] = useState(initialIsInWishlist ?? false);
 
   const handleWishlistClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -136,8 +136,9 @@ const ProductCard: React.FC<ProductCardProps> = ({
       </AlertDialog>
 
       <Dialog open={open} onOpenChange={setOpen}>
-        <div className="group cursor-pointer h-full relative">
-        <Card className="flex flex-col h-full overflow-hidden hover:shadow-lg transition-shadow">
+        <DialogTrigger asChild>
+          <div className="group cursor-pointer h-full relative">
+            <Card className="flex flex-col h-full overflow-hidden hover:shadow-lg transition-shadow">
           {/* Image Section - Clickable */}
           <a 
             href={productUrl || "#"} 
@@ -239,12 +240,18 @@ const ProductCard: React.FC<ProductCardProps> = ({
             </div>
           </CardFooter>
         </Card>
-      </div>
+            </div>
+        </DialogTrigger>
 
       <DialogContent className="sm:max-w-4xl w-[95vw] p-6">
+        <DialogTitle className="sr-only">Style Suggestions</DialogTitle>
+        <DialogDescription className="sr-only">
+          AI-powered outfit recommendations based on style similarity
+        </DialogDescription>
         <StyleBuilderModalContent baseProductId={productId} />
       </DialogContent>
-    </Dialog>
+      </Dialog>
+    </>
   );
 };
 
@@ -275,9 +282,13 @@ const StyleBuilderModalContent: React.FC<StyleBuilderModalContentProps> = ({ bas
       setIsLoading(true);
       setError(null);
 
+      console.log('[StyleBuilder] Fetching recommendations for product ID:', baseProductId);
+
       try {
         // Call 1 → Style API
-        const resp1 = await fetch(`http://localhost:8000/api/style-builder/${encodeURIComponent(baseProductId)}`);
+        const apiUrl = `http://localhost:8000/api/style-builder/${encodeURIComponent(baseProductId)}`;
+        console.log('[StyleBuilder] Calling API:', apiUrl);
+        const resp1 = await fetch(apiUrl);
         if (!resp1.ok) throw new Error("Style API error: " + resp1.status);
 
         const recData = await resp1.json();
@@ -467,9 +478,6 @@ const StyleBuilderModalContent: React.FC<StyleBuilderModalContentProps> = ({ bas
           );
         })()
       )}
-
-        </div>
-      </Dialog>
-    </>
+    </div>
   );
 };
