@@ -1,19 +1,19 @@
 <div align="center">
-  <h1>🚀 ValueScout</h1>
+  <h1> ValueScout</h1>
   <p><b>AI-powered deal comparison and style builder platform</b></p>
 </div>
 
-## 📖 Introduction
+##  Introduction
 ValueScout is a comprehensive web platform designed to redefine how you shop. By leveraging Artificial Intelligence, ValueScout helps users find the best deals, compare products seamlessly, and curate unique styles. With a robust microservice architecture combining a high-performance React frontend, an Express-driven backend, and a dedicated Python AI engine, ValueScout provides a seamless and intelligent shopping experience.
 
-## ✨ Features
+##  Features
 - 📊 **Dashboard & Search**: Interactive search and real-time visualization for deals and products.
 - 🔐 **Authentication**: Secure and quick login with Google, complete with email verification.
 - 🎨 **AI Style Builder**: Curate and build personalized styles using intelligent AI recommendations.
 - 🔔 **Price Alerts**: Set up custom email notifications for price drops on your favorite items.
 - 🛍️ **Wishlist & Recommendations**: Save favorite items and receive tailored product suggestions.
 
-## 📸 Screenshots
+##  Screenshots
 Here is a glimpse of ValueScout in action:
 
 <img src="./sc/homepage.png" width="49%" alt="Homepage" /> <img src="./sc/homepage%20search.png" width="49%" alt="Homepage Search" />
@@ -22,9 +22,9 @@ Here is a glimpse of ValueScout in action:
 
 <img src="./sc/recommendation.png" width="49%" alt="Recommendations" /> <img src="./sc/wishlist%20page.png" width="49%" alt="Wishlist" />
 
-## 🛠️ Tech Stack & Libraries
+## Tech Stack & Libraries
 
-### 💻 Frontend
+###  Frontend
 <p>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
@@ -37,7 +37,7 @@ Here is a glimpse of ValueScout in action:
 - **Routing:** React Router DOM
 - **Utilities:** React Hook Form, Zod, React Query, Recharts
 
-### 🗄️ Backend
+###  Backend
 <p>
   <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" />
   <img src="https://img.shields.io/badge/Express.js-404D59?style=for-the-badge" />
@@ -48,7 +48,7 @@ Here is a glimpse of ValueScout in action:
 - **Database:** MongoDB (Mongoose)
 - **Utilities:** Node-cron (Scheduling), Nodemailer (Email Alerts), Cheerio, Axios
 
-### 🧠 AI & Web Scraping
+###  AI & Web Scraping
 <p>
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" />
   <img src="https://img.shields.io/badge/Playwright-2EAD33?style=for-the-badge&logo=playwright&logoColor=white" />
@@ -58,7 +58,7 @@ Here is a glimpse of ValueScout in action:
 - **Scraping:** Playwright
 - **Utilities:** AI Embedding Models, Web Automation
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```text
 value-scout/
@@ -69,7 +69,7 @@ value-scout/
 └── package.json        # Main workspace configuration & concurrent scripts
 ```
 
-## 🚦 Getting Started
+##  Getting Started
 
 **Prerequisites:**
 - [Node.js](https://nodejs.org/) (v18+)
